@@ -27,10 +27,10 @@ st.write('''
 text = st.text_area("Enter text:",height=None,max_chars=None,key=None,help="Enter your text here")
 
 option1 = st.selectbox('Input language',
-                      ('Chinese','English))
+                      ('中文','English'))
 
 option2 = st.selectbox('Output language',
-                       ('English','Chinese'))
+                       ('English','中文'))
 
 value1 = Languages[option1]
 value2 = Languages[option2]

@@ -2,18 +2,18 @@ import streamlit as st # pip install streamlit==0.82.0
 import gtts # pip install gtts
 lines = open('./双语语料库.txt','r').readlines()
 with open(file_path, 'r', encoding='utf-8') as f:
-  lines = f.readlines()
+    lines = f.readlines()
 def translator(lines,text):
-  language_dict = {}
-  for line in lines:
-      line = line.strip()
-      if line:    
-          cantonese, english = line.split('=')
-          language_dict[cantonese] = english
-  if user_input in list(language_dict.keys()):
-      return language_dict[user_input]
-  else:
-      return '对不起，我不会'
+    language_dict = {}
+    for line in lines:
+        line = line.strip()
+        if line:    
+            cantonese, english = line.split('=')
+            language_dict[cantonese] = english
+    if text in list(language_dict.keys()):
+        return language_dict[text]
+    else:
+        return '对不起，我不会'
 
 st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.png', layout='wide', initial_sidebar_state='expanded')
 

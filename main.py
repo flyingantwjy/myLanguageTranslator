@@ -32,8 +32,8 @@ option1 = st.selectbox('Input language',
 option2 = st.selectbox('Output language',
                        ('English','中文'))
 
-value1 = Languages[option1]
-value2 = Languages[option2]
+#value1 = Languages[option1]
+#value2 = Languages[option2]
 
 if st.button('Translate Sentence'):
     if text == "":
@@ -43,7 +43,7 @@ if st.button('Translate Sentence'):
         translate = translator(lines,text)
         st.info(str(translate))
 
-        converted_audio = gtts.gTTS(translate, lang=value2)
+        converted_audio = gtts.gTTS(translate, lang='en')
         converted_audio.save("translated.mp3")
         audio_file = open('translated.mp3','rb')
         audio_bytes = audio_file.read()

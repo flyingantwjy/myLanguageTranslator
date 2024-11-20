@@ -1,8 +1,6 @@
 import streamlit as st # pip install streamlit==0.82.0
 import gtts # pip install gtts
 lines = open('./双语语料库.txt','r').readlines()
-with open(file_path, 'r', encoding='utf-8') as f:
-    lines = f.readlines()
 def translator(lines,text):
     language_dict = {}
     for line in lines:

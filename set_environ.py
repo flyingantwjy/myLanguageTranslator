@@ -1,0 +1,2 @@
+import os
+os.environ['API_KEY'] = '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'

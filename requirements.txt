@@ -1,3 +1,4 @@
 streamlit
 gtts
+openai==1.54.4
 

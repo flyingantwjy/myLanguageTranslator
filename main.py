@@ -5,7 +5,7 @@ lines = open('./双语语料库.txt','r').readlines()
 def chatgpt_translator(sent):
     from openai import OpenAI
 
-    api_key = open('./nono.txt','r').read().strip()
+    api_key = "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"
     client = OpenAI(api_key = api_key)
 
     response = client.chat.completions.with_raw_response.create(

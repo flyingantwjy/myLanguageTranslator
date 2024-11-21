@@ -2,32 +2,7 @@ import streamlit as st # pip install streamlit==0.82.0
 import gtts # pip install gtts
 import os
 lines = open('./双语语料库.txt','r').readlines()
-def chatgpt_translator(sent):
-    from openai import OpenAI
-
-    api_key = "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"
-    client = OpenAI(api_key = api_key)
-
-    response = client.chat.completions.with_raw_response.create(
-        messages=[{
-            "role": "user",
-            "content": "翻译下面的粤语为英语，no additional information needed:"+sent,
-        }],
-        model="gpt-4o-mini",
-        temperature=0.5,
-        top_p=1.0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0,#
-    )
-    #print(response.headers.get('x-ratelimit-limit-tokens'))
-
-    # get the object that `chat.completions.create()` would have returned
-    completion = response.parse()
-    #print(completion)
-    answer = completion.choices[0].message.content
-    #print(answer)
-    return answer
-    
+   
 def translator(lines,text):
     language_dict = {}
     for line in lines:
@@ -38,7 +13,7 @@ def translator(lines,text):
     if text in list(language_dict.keys()):
         return language_dict[text]
     else:
-        return chatgpt_translator(text)
+        return '对不起，我不会'
 
 st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.png', layout='wide', initial_sidebar_state='expanded')
 

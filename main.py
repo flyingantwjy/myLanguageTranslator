@@ -2,7 +2,7 @@ import streamlit as st # pip install streamlit==0.82.0
 import gtts # pip install gtts
 import os
 lines = open('./双语语料库.txt','r').readlines()
-   
+new_lines = open('./新增句子.txt','a+')
 def translator(lines,text):
     language_dict = {}
     for line in lines:
@@ -13,6 +13,8 @@ def translator(lines,text):
     if text in list(language_dict.keys()):
         return language_dict[text]
     else:
+        new_lines.write(text+'\n')
+        new_lines.close()
         return '对不起，我不会'
 
 st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.png', layout='wide', initial_sidebar_state='expanded')

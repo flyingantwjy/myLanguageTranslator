@@ -47,7 +47,7 @@ if st.button('Translate Sentence'):
         st.audio(audio_bytes, format='audio')
         st.write("To **download the audio file**, click the kebab menu on the audio bar.")
         st.success("Translation is **successfully** completed!")
-        st.balloons()
+        #st.balloons()
 else:
     pass
 
